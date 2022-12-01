@@ -70,7 +70,7 @@ def run_sanity_check(test_dir):
             print(FAIL_COLOR+f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(FAIL_COLOR +
-                  '''Your test case for GET() does not seem to be testing 
+                  '''Your test case for GET() does not seem to be testing
                      the CONTENTS of the response.\n''')
 
     # POST()
