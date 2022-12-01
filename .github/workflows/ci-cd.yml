@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DVC_REMOTE_STORAGE: s3://mlflow-udacity-project/artifacts
+      DVC_REMOTE_STORAGE: s3://mlops-udacity-project/artifacts
     steps:
       - uses: actions/checkout@v2
         with:
