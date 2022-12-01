@@ -1,7 +1,10 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.ensemble import RandomForestClassifier
 
 
-# Optional: implement hyperparameter tuning.
+from starter.ml.data import process_data
+
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -17,13 +20,20 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-
-    pass
+    model = RandomForestClassifier(n_estimators=100,
+                                   max_depth=15,
+                                   min_samples_split=4,
+                                   min_samples_leaf=3,
+                                   max_features=0.5,
+                                   random_state=0)
+    model.fit(X_train, y_train)
+    return model
 
 
 def compute_model_metrics(y, preds):
     """
-    Validates the trained machine learning model using precision, recall, and F1.
+    Validates the trained machine learning model
+    using precision, recall, and F1.
 
     Inputs
     ------
@@ -57,4 +67,34 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+    preds = model.predict(X)
+    return preds
+
+
+def compute_metrics_model_based_slice(df,
+                                      cate,
+                                      cat_features,
+                                      model,
+                                      encoder,
+                                      lb):
+    """
+
+    """
+    dict_preds = {}
+    for value in df[cate].unique():
+        df_cate = df[df[cate] == value]
+        X, y, _, _ = process_data(df_cate,
+                                  cat_features,
+                                  label='salary',
+                                  training=False,
+                                  encoder=encoder,
+                                  lb=lb)
+
+        preds = model.predict(X)
+
+        precision, recall, fbeta = compute_model_metrics(y, preds)
+        dict_preds[value] = {
+            'precision': precision,
+            'recall': recall,
+            'fbeta': fbeta}
+    return dict_preds

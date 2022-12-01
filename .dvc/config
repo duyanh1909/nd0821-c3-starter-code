@@ -1,0 +1,4 @@
+[core]
+    remote = s3-artifact
+['remote "s3-artifact"']
+    url = s3://mlops-udacity-project/artifacts
