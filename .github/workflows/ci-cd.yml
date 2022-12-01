@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          if [ -f starter/requirements.txt ]; then pip install -r starter/requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Setup DVC
         run: |
           dvc remote add -d s3_remote_artifacts ${{ env.DVC_REMOTE_STORAGE }}

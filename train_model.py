@@ -1,24 +1,21 @@
-# Script to train machine learning model.
-
 from sklearn.model_selection import train_test_split
 
-# Add the necessary imports for the starter code.
 import pandas as pd
 import joblib
 import logging
 
-from starter.starter.ml.data import process_data
-from starter.starter.ml.model import (train_model,
-                                      inference,
-                                      compute_model_metrics,
-                                      compute_metrics_model_based_slice)
+from ml.data import process_data
+from ml.model import (train_model,
+                      inference,
+                      compute_model_metrics,
+                      compute_metrics_model_based_slice)
 
 logging.basicConfig(level=logging.INFO,
-                    filename="./starter/logs/slice_outputs.txt",
+                    filename="./logs/slice_outputs.txt",
                     format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-data = pd.read_csv("./starter/data/cleaned_data.csv")
+data = pd.read_csv("./data/cleaned_data.csv")
 train, test = train_test_split(data, test_size=0.20)
 
 cat_features = [
@@ -42,9 +39,9 @@ X_test, y_test, _, _ = process_data(
 
 model = train_model(X_train, y_train)
 
-joblib.dump(model, "./starter/model/model.joblib")
-joblib.dump(encoder, "./starter/model/encoder.joblib")
-joblib.dump(lb, "./starter/model/lb.joblib")
+joblib.dump(model, "./model/model.joblib")
+joblib.dump(encoder, "./model/encoder.joblib")
+joblib.dump(lb, "./model/lb.joblib")
 
 preds = inference(model, X_test)
 precision, recall, fbeta = compute_model_metrics(y_test, preds)

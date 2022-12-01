@@ -24,8 +24,8 @@ def basic_cleaning(path, list_label, output):
 
 
 if __name__ == '__main__':
-    path = './starter/data/census.csv'
-    output = './starter/data/cleaned_data.csv'
+    path = './data/census.csv'
+    output = './data/cleaned_data.csv'
     droped_label = [
         'capital-gain',
         'capital-loss'

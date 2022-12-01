@@ -5,8 +5,8 @@ from joblib import load
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from starter.ml.data import process_data
-from starter.ml.model import inference as predict
+from ml.data import process_data
+from ml.model import inference as predict
 
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
@@ -50,9 +50,9 @@ class User(BaseModel):
 
 
 app = FastAPI()
-MODEL = load("./starter/model/model.joblib")
-ENCODER = load("./starter/model/encoder.joblib")
-LB = load("./starter/model/lb.joblib")
+MODEL = load("./model/model.joblib")
+ENCODER = load("./model/encoder.joblib")
+LB = load("./model/lb.joblib")
 CAT_FEATURES = [
     "workclass",
     "education",
