@@ -42,9 +42,9 @@ class User(BaseModel):
 
 
 app = FastAPI()
-MODEL = load("./model/model.joblib")
-ENCODER = load("./model/encoder.joblib")
-LB = load("./model/lb.joblib")
+MODEL = load("./starter/model/model.joblib")
+ENCODER = load("./starter/model/encoder.joblib")
+LB = load("./starter/model/lb.joblib")
 CAT_FEATURES = [
     "workclass",
     "education",
