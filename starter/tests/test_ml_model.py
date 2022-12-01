@@ -12,17 +12,17 @@ from starter.ml.model import (train_model,
 
 @pytest.fixture
 def model():
-    return joblib.load('./model/model.joblib')
+    return joblib.load('./starter/model/model.joblib')
 
 
 @pytest.fixture
 def lb():
-    return joblib.load('./model/lb.joblib')
+    return joblib.load('./starter/model/lb.joblib')
 
 
 @pytest.fixture
 def encoder():
-    return joblib.load('./model/encoder.joblib')
+    return joblib.load('./starter/model/encoder.joblib')
 
 
 @pytest.fixture
@@ -41,7 +41,7 @@ def cat_features():
 
 @pytest.fixture(scope='function')
 def df():
-    return pd.read_csv('./data/cleaned_data.csv')
+    return pd.read_csv('./starter/data/cleaned_data.csv')
 
 
 def test_train_model(df, cat_features):
