@@ -24,6 +24,7 @@ Randomly taking 20% of the census dataset we get the evaluation data. Source: ht
 This model is evaluated based on the measures of Precision(0.64), Recall(0.57), Fbeta(0.6)
 
 ## Ethical Considerations
-
+The random forest model is evaluated over multiple slices. However, the distribution of the data is not balancing so the model may be biased toward some people.
 
 ## Caveats and Recommendations
+The dataset is unbalanced so further analysis is required to get the best model.
