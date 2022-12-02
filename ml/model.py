@@ -1,3 +1,7 @@
+"""
+The file consist of 4 function to evaluate model,
+inference and computing metrics
+"""
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 
@@ -78,7 +82,8 @@ def compute_metrics_model_based_slice(df,
                                       encoder,
                                       lb):
     """
-
+    Validates the trained machine learning model
+    using precision, recall, and F1 based on slice.
     """
     dict_preds = {}
     for value in df[cate].unique():

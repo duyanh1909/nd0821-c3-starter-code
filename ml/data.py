@@ -1,3 +1,6 @@
+"""
+The file consist of 1 function to process data.
+"""
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
@@ -67,7 +70,6 @@ def process_data(
         X_categorical = encoder.transform(X_categorical)
         try:
             y = lb.transform(y.values).ravel()
-        # Catch the case where y is None because we're doing inference.
         except AttributeError:
             pass
 

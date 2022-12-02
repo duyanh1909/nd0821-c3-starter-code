@@ -1,3 +1,8 @@
+"""
+Test web API module
+"""
+
+
 import pytest
 from fastapi.testclient import TestClient
 from web.app import app
@@ -5,9 +10,6 @@ from web.app import app
 
 @pytest.fixture
 def client():
-    """
-    Get dataset
-    """
     return TestClient(app)
 
 

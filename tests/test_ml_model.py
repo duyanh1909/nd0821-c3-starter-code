@@ -1,3 +1,7 @@
+"""
+Test ml model module.
+"""
+
 import joblib
 import pandas as pd
 import pytest

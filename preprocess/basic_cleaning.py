@@ -1,6 +1,6 @@
-#!/usr/bin/env python
 """
-Performs basic cleaning on the data and save the results in Weights & Biases
+The file consist of 1 function to preprocess dataset.
+
 """
 import pandas as pd
 
