@@ -17,5 +17,6 @@ data = {
 }
 
 
-response = requests.post("https://mlops-udacity-project.herokuapp.com/", json=data)
+response = requests.post(url="https://mlops-udacity-project.herokuapp.com/",
+                         json=data)
 print(f"""status: {response.status_code}\ndata: {response.json()}""")
