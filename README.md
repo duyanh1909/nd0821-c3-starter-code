@@ -44,7 +44,7 @@ To use your new S3 bucket from the AWS CLI you will need to create an IAM user w
 * This data is messy, try to open it in pandas and see what you get.
 * To clean it, use your favorite text editor to remove all spaces.
 * Commit this modified data to DVC under a new name (we often want to keep the raw data untouched but then can keep updating the cooked version).
-
+* Before training the model, we have to preprocess the data, but for better data preprocessing we have to perform EDA to explore the data and get an overview of the data.
 ## Model
 
 * Using the starter code, write a machine learning model that trains on the clean data and saves the model. Complete any function that has been started.
